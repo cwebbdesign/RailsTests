@@ -1,0 +1,49 @@
+RAILS BASICS:
+1. mkdir "project_folder"
+2. cd project_folder
+3. rails new app_name
+4. cd app_name
+5. subl Gemfile (opens gem config in sublimetext2)
+6. bundle install
+7. rails server
+
+	Git - one time config
+		-> git config --global user.name "chris.webb"
+		-> git config --global user.email chris@mediumequalsmessage.com
+		-> optional: git config --global alias.co checkout
+		-> git config --global alias.co checkout
+		-> git config --global core.editor "subl -w"
+		-> git remote add origin git@github.com:<username>/demo_app.git
+			git push origin master
+			# add new repository
+
+8. subl .gitignore
+				.bundle
+				db/*.sqlite3*
+				log/*.log
+				*.log
+				tmp/**/*
+				tmp/*
+				doc/api
+				doc/app
+				*.swp
+				*~
+				.DS_Store
+				.sass-cache/
+9.  git init - > then -> git add .
+10. git status
+11. git commit -m "Initial commit"
+		-> commit is local
+		-> git push is to remote
+12. Heroku -> see heroku site
+	-> sudo heroku create
+	-> git remote add (heroku - remote name) git@heroku.com:appname
+	-> git push (heroku - remote name) master
+	
+
+
+-------
+Scaffolding:
+rails generate scaffold User name:string email:string #pick db fields
+rails db:migrate # migrate db -> updates database
+rails s # Run rails server
