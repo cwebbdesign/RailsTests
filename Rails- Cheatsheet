@@ -39,11 +39,33 @@ RAILS BASICS:
 	-> sudo heroku create
 	-> git remote add (heroku - remote name) git@heroku.com:appname
 	-> git push (heroku - remote name) master
-	
+	-> heroku rake db:migrate
+		-> Data can be pushed this way [sudo] gem install taps
+			heroku db:push
 
+( In an ideal setup, it works like this: git add .
+$ git commit -a -m "Done with the demo app"
+$ git push
 
+$ heroku create
+$ git push heroku master
+$ heroku rake db:migrate
+
+$ [sudo] gem install taps
+$ heroku db:push
+)
+
+13. RSPEC
+14. AUTOTEST
+15. SPORK -> see http://chrismdp.github.com/2010/11/getting-spork-working-now-on-rails-3-rspec-2-and-cucumber/
 -------
 Scaffolding:
 rails generate scaffold User name:string email:string #pick db fields
 rails db:migrate # migrate db -> updates database
 rails s # Run rails server
+
+
+
+----
+SAMPLE APP
+1. rails generate controller
