@@ -69,3 +69,171 @@ rails s # Run rails server
 ----
 SAMPLE APP
 1. rails generate controller
+
+-----
+RAILS RUBY
+# Variable
+	first_name = "chris"
+
+
+# interpolation in string
+	#{first_name}
+
+# Object
+	"foobar".length
+	"foobar".empty?
+
+# Sample
+	s = "foobar"
+	if s.empty?
+		"string is empty"
+	else
+		"string is non empty"
+	end
+
+# Booleans && and || or ! not
+	puts "both are empty" if x.empty? && y.empty?
+	puts "one string is empty" if x.empty? || y.empty?
+	puts "x is not empty" if !x.empty?
+
+# Keywords if, else, unless
+	puts "The string '#{string}' is non empty." unless string.empty?
+
+# Method Definitions ( .length, empty?, etc.)
+	def string_message(string)
+		if string.empty?
+			"empty string"
+		else
+			"not empty"
+		end
+	end
+
+# Ruby function have implicit return BUT can also use explicit
+	def string_message(string)
+		return "it's empty" if string.empty?
+		return "the string is nonempty"
+	end
+
+
+# Array
+["foo", "bar", "baz"]
+
+	# Range of array
+		a = [41, 8, 9]
+	# therefore a[0] is 41, also 1[-1] and a[2] are 9
+
+	# in rails can also use: a.first a.second a.last
+	# respond to lots of other methods including:
+		.sort
+		.reverse
+		.shuffle
+		.split #converts string into arrays
+		.join #joins arrays into strings
+		.inspect #returns a string representing the object called on, can also use p :name #same as puts :name.inspect
+		a << 7 #pushes 7 into the array resulting in [41, 8, 9, 7]
+		a << "foo" << "bar" #chaining the push resulting in [41, 8, 9, 7, "foo", "bar"]
+
+# Ranges (work with numbers and characters)
+0..9
+'a'..'e'
+
+	# use parenthese to call to_a on range
+	(0..9).to_a # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+	a = %w [foo bar baz quux] # use %w to make a string array ["foo", "bar", "baz", "quux"]
+
+	a[0..2] #result is ["foo", "bar", "baz"]
+
+# Operators = == != >= <
+
+# Blocks - any variable allowed in the pipes. convention is braces for one line and do/end for multiline
+the method (first part) is passed to the block
+		(1..5).each { |i| puts 2 * i }
+		# puts 1 * 2, 2 * 2, 3 * 2, etc.
+		(1..5).each do |number|
+		puts 2 * number
+		puts '--'
+	end
+	# results in :
+	2
+	--
+	4
+	--
+	6
+	--
+	8
+	--
+	10
+	--
+
+# Hashes (like arrays but not limited to integer indicies - i.e. a string can be the key). Braces contain value pairs.
+
+	user = {} 					   #empty hash
+	user["first_name"] = "Michael" #first_name is the key
+	user["first_name"] 			   #access the hash value like an array
+	{"first_name"=>"Michael", "last_name"=>"Webb"} #literal representation of the hash
+
+	#Symbols - usually used as a hash key instead of a string.
+		user = { :name => "Michael Hartl", :email => "michael@example.com" }
+		
+		user[:name] # returns "Michael Hartl"
+		
+		params = {} #defines empty hash
+		params[:user] = { :name => "Chris Webb", :email => tc@c.com"}
+		#returns {:user=>{:name=>"Chris Webb", :email => tc@c.com"}} - a nested hash
+		params[:user] [:email] #returns "tc@c.com"
+		#each used with a hash iterates one value pair at a time
+		
+		#	2 notes 
+			1. parenthesis are option in function calls
+				stylesheet_link_tag('bluepring/screen', :media => 'screen') 
+				is the same as
+				stylesheet_link_tag 'bluepring/screen', :media => 'screen'
+			2. brace on final hash arguments are optional
+				stylesheet_link_tag 'bluepring/screen', {:media => 'screen'}
+				is the same as
+				stylesheet_link_tag 'bluepring/screen', :media => 'screen'
+			3. <% %> tags embedded ruby -  in html source the result is rendered as html
+
+#Constructors
+	s = "foobar" or
+	s = String.new("foobar")
+	a = Array.new([1, 3, 2])
+		#hash take value for the hash key
+		h = Hash.new returns {}
+		h[:foo] returns nil
+		h = Hash.new(0) returns {}
+		h[:foo] returns 0
+
+#Class inheritance
+	s = String.new("foobar")
+	s.class #class of s = string
+	s.class.superclass # String = object
+	s.class.superclass.superclass # BasicObject
+	s.class.superclass.cuperclass.superclass #nil
+	#so hierarchy traces back to BasicObject
+
+	class Word
+		def palindrome?(string)
+			string == string.reverse
+		end
+	end
+
+	w = Word.new #makes new word object
+	w.palindrome?("foobar") #returns false
+	w.palindrome?("level") #returns true
+
+	class Word < String #word inherits from String
+		def palindrome?
+			self == self.reverse #self is the string itself
+		end
+	end
+
+	s = Word.new("level")
+	s.palindrome? #returns true
+	s.length # returns 5
+	s.class #returns Word
+	s.class.superclass #returns string
+	s.class.superclass.superclass #returns object
+	self == self.reverse # self keyword is an object inside the Word class which means we can directly access it in this method
+
