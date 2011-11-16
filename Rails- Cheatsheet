@@ -237,3 +237,8 @@ the method (first part) is passed to the block
 	s.class.superclass.superclass #returns object
 	self == self.reverse # self keyword is an object inside the Word class which means we can directly access it in this method
 
+
+	_____HTML
+	<%= link_to "Home", 'href', :class => "navlinks" %>
+	<%= image_tag("logo.png", :alt => "Logo", :class => "round") %>
+

@@ -3,9 +3,16 @@
   <head>
     <title><%= title %></title>
     <%= csrf_meta_tag %>
-    <%= stylesheet_link_tag 'screen', :media => 'screen' %>
+    <%= render 'layouts/stylesheets' %>
+    
   </head>
   <body>
-    <%= yield %>
+  	<div class="container">
+    	<%= render 'layouts/header' %>
+      	<section class="round">
+    			<%= yield %>
+  			</section>
+        <%= render 'layouts/footer' %>
+  	</div>
   </body>
 </html>
