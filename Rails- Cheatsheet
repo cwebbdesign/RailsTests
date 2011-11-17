@@ -242,3 +242,50 @@ the method (first part) is passed to the block
 	<%= link_to "Home", 'href', :class => "navlinks" %>
 	<%= image_tag("logo.png", :alt => "Logo", :class => "round") %>
 
+
+--- 
+1. rails generate controller Users new #generate controller
+2. rm -rf spec/views
+3. rm -rf spec/helpers #remove unneccessary tests
+4. add a test: include render_views and title
+	require 'spec_helper'
+
+describe UsersController do
+  render_views
+
+  describe "GET 'new'" do
+    it "should be successful" do
+      get 'new'
+      response.should be_success
+    end
+
+    it "should have the right title" do
+      get 'new'
+      response.should have_selector("title", :content => "Sign up")
+    end
+  end
+end
+
+5. make @title instance variable
+	users_controller.rb
+		def new
+			@title = "Sign up"
+		end
+	end
+6. write integration test in layout_links_spec.rb
+	require 'spec_helper'
+
+describe "LayoutLinks" do
+  .
+  .
+  .
+  it "should have a signup page at '/signup'" do
+    get '/signup'
+    response.should have_selector('title', :content => "Sign up")
+  end
+end
+
+7. add route in config/routes.rb
+get "users/new"
+
+  match '/signup',  :to => 'users#new'
