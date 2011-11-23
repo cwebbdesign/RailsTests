@@ -289,3 +289,10 @@ end
 get "users/new"
 
   match '/signup',  :to => 'users#new'
+
+
+______
+Precompile:   
+bundle exec rake assets:precompile
+Test Prep
+rake db:test:prepare

@@ -10,15 +10,16 @@ describe User do
        }
   end
 
-  it "should create a new instance given valid attributes" do
+  it "should create a new instance given a valid attribute" do
   	User.create!(@attr)
   end
 
   it "should require a name" do
   	no_name_user = User.new(@attr.merge(:name => ""))
-  	no_name_user.should_not be_valid # equivalent to no_name_user.valid?.should_not == true
+  	no_name_user.should_not be_valid 
+    # equivalent to no_name_user.valid?.should_not == true
   end
-  it "should require an email" do
+  it "should require an email address" do
   	no_email_user = User.new(@attr.merge(:email => ""))
   	no_email_user.should_not be_valid
   end
@@ -43,7 +44,7 @@ describe User do
   end
   it "should reject duplicate email addresses" do
     #put a user with given email address into the database
-    User.create! (@attr)
+    User.create!(@attr)
     user_with_duplicate_email = User.new(@attr)
     user_with_duplicate_email.should_not be_valid
   end
@@ -56,11 +57,13 @@ describe User do
   describe "password validations" do
 
     it "should require a password" do
-      User.new(@attr.merge(:password => "", :password_confirmation => "")).should_not be_valid
+      User.new(@attr.merge(:password => "", :password_confirmation => "")).
+      should_not be_valid
     end
 
     it "should require a matching password confirmation" do
-      User.new(@attr.merge(:password_confirmation => "invalid")).should_not be_valid
+      User.new(@attr.merge(:password_confirmation => "invalid")).
+      should_not be_valid
     end
 
     it "should reject short passwords" do
@@ -90,11 +93,11 @@ describe User do
 
     describe "has_password? method" do
 
-      it "should be true if the passwords match" do
+      it "should return true if the passwords match" do
         @user.has_password?(@attr[:password]).should be_true
       end
 
-      it "should be false if the passwords don't match" do
+      it "should return false if the passwords don't match" do
         @user.has_password?("invalid").should be_false
       end
     end
