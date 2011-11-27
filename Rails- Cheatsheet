@@ -292,7 +292,10 @@ get "users/new"
 
 
 ______
+bundle exec rake
+
 Precompile:   
 bundle exec rake assets:precompile
+
 Test Prep
 rake db:test:prepare

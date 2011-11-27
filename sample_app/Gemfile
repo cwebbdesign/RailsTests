@@ -7,7 +7,7 @@ gem 'gravatar_image_tag'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
+gem 'sqlite3-ruby'
 group :development do
 	gem 'rspec-rails'
 	gem 'annotate'
@@ -15,10 +15,11 @@ group :development do
 end
 
 group :test do
-	gem 'rspec'
+	gem 'rspec-rails'
 	gem 'webrat'
 	gem 'spork'
 	gem 'factory_girl_rails'
+	gem 'gravatar_image_tag'
 end
 
 # Gems used only for assets and not required

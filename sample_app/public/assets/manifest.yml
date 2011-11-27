@@ -3,6 +3,7 @@ logo.png: logo-5d03eecb20f20f87b5ee6d74f7a70457.png
 rails.png: rails-9dd6cb09c6272d5724c9f439cac0aecd.png
 application.js: application-f9df3c7354e93967c8290c254df0c9a5.js
 pages.js: pages-ea6751ce1eafb6dda823db18e5e7ebb0.js
+sessions.js: sessions-ea6751ce1eafb6dda823db18e5e7ebb0.js
 users.js: users-ea6751ce1eafb6dda823db18e5e7ebb0.js
 application.css: application-15c34c7b95278f3b907e592fe2f63b03.css
 blueprint/plugins/buttons/icons/cross.png: blueprint/plugins/buttons/icons/cross-0083b7d66a959058b966ce95d0808eaa.png
@@ -34,6 +35,7 @@ pages.css: pages-ea6751ce1eafb6dda823db18e5e7ebb0.css
 print.css: print-6470a1eb831ebd454f6d21307d623ff1.css
 reset.css: reset-62d49c5f06c34ccc9829b6a106a890d4.css
 screen.css: screen-15088c1d2f1b4d8b90a21094e2d8da9c.css
+sessions.css: sessions-ea6751ce1eafb6dda823db18e5e7ebb0.css
 typography.css: typography-3cd4bcbc72edab9bf689b3418939d292.css
 users.css: users-ea6751ce1eafb6dda823db18e5e7ebb0.css
 jquery-ui.js: jquery-ui-df91aee7baee9bf0b67af09c5151aafa.js
